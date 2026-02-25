@@ -12,9 +12,8 @@
 1. 前往您的 GitHub Repository
 2. 點擊 `Settings` 標籤
 3. 在左側選單中找到 `Pages`
-4. 在 `Source` 部分選擇 `Deploy from a branch`
-5. 選擇 `gh-pages` 分支（如果不存在，GitHub Actions 會自動創建）
-6. 點擊 `Save`
+4. 在 `Build and deployment` > `Source` 部分選擇 `GitHub Actions`
+5. 這樣 GitHub Actions 就會直接管理部署流程
 
 ### 3. 設定 Actions 權限
 1. 前往 `Settings` > `Actions` > `General`
@@ -67,15 +66,8 @@
    - 或在開發者工具中右鍵重新整理按鈕選擇「清空快取並強制重新載入」
 
 ### 如果遇到 "Resource not accessible by integration" 錯誤：
-1. **檢查 Pages 設定**：確保 Repository Settings > Pages 中 Source 設定為 "Deploy from a branch"
-2. **檢查 Actions 權限**：確保 Repository Settings > Actions > General > Workflow permissions 設定為 "Read and write permissions"
-3. **手動創建 gh-pages 分支**：
-   ```bash
-   git checkout --orphan gh-pages
-   git rm -rf .
-   git commit --allow-empty -m "Initial commit"
-   git push origin gh-pages
-   ```
+1. **檢查 Pages 設定**：確保 Repository Settings > Pages 中 Source 設定為 "GitHub Actions"
+2. **檢查 Actions 權限**：確保 Repository Settings > Actions > General > Workflow permissions 具備寫入權限（雖然新流程使用更細粒度的權限，但這也是一個檢查點）
 
 ### 如果部署仍然失敗：
 1. **檢查 Repository 設定**：
