@@ -1,0 +1,1 @@
+{logoUrl && <div className="w-12 h-12 flex items-center justify-center mt-2 rounded bg-black/20 p-1 border border-brand-border"><img src={logoUrl} className="w-full h-full object-contain"/></div>}
