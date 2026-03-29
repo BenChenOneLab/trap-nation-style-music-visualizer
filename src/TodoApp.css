@@ -1,0 +1,40 @@
+.todo-app {
+    background-color: #121212; /* Dark background */
+    color: #00FFFF; /* Cyan text color */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: #00FFFF; /* Cyan heading color */
+    text-align: center;
+}
+
+input[type='text'] {
+    padding: 10px;
+    border: 2px solid #00FFFF; /* Cyan border */
+    border-radius: 5px;
+    width: calc(100% - 24px);
+}
+
+button {
+    background-color: #00FFFF; /* Cyan button background */
+    border: none;
+    border-radius: 5px;
+    color: #121212; /* Dark text on button */
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+li {
+    background-color: #1E1E1E; /* Slightly lighter dark for list items */
+    color: #00FFFF;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
