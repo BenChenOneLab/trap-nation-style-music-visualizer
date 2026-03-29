@@ -1,1 +1,1 @@
-{logoUrl && <div className="w-12 h-12 flex items-center justify-center mt-2 rounded bg-black/20 p-1 border border-brand-border"><img src={logoUrl} className="w-full h-full object-contain"/></div>}
+{logoUrl && (<div className="w-full max-w-sm mx-auto mt-2 rounded bg-black/20 p-3 border border-brand-border flex items-center justify-center" style={{ aspectRatio: '1 / 1' }}><img src={logoUrl} className="max-w-full max-h-full object-contain" alt="Logo Preview" /></div>)}
