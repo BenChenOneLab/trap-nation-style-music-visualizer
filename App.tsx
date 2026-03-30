@@ -672,11 +672,22 @@ const App: React.FC = () => {
   }, [aspectRatio]);
 
   const handleGenerateClick = async () => {
-    if (!canvasRef.current || !audioRef.current || !audioFile || !mediaStreamDestinationRef.current) return;
+    if (!canvasRef.current || !audioRef.current || !audioFile) return;
 
     if (typeof MediaRecorder === 'undefined') {
         alert('Your browser does not support video recording.');
         return;
+    }
+
+    // Web Audio graph (incl. MediaStreamDestination for export) was only created on first play(); build it here so render works without pressing play first.
+    setupAudioContext();
+    const audioContext = audioContextRef.current;
+    if (audioContext?.state === 'suspended') {
+      await audioContext.resume();
+    }
+    if (!mediaStreamDestinationRef.current) {
+      alert('無法建立音訊錄製路徑，請確認已選擇音訊檔並再試一次。');
+      return;
     }
 
     let finalFormat = exportFormat;
