@@ -582,13 +582,11 @@ const App: React.FC = () => {
                 break;
         }
         
-        // --- Draw Anchored Visualizer ---
+        // --- Draw Anchored Visualizer (same origin as logo: canvas center = logo bounding-box center) ---
         if (isAudioPlaying) {
             ctx.save();
             ctx.shadowColor = config.spectrumColor1;
             ctx.shadowBlur = config.glowRadius * (avg / 255);
-            // Position the spectrum relative to the logo's center
-            ctx.translate(0, logoDrawHeight * 0.3); // Adjust Y-offset to position below logo center
             drawDynamicVisualizer(ctx, width, height, visualizerData, time, bassAvg);
             ctx.restore();
         }
