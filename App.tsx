@@ -449,11 +449,14 @@ const App: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Backing store is device pixels; context was scaled by dpr in resize — use logical CSS pixels for all drawing.
+    const dpr = window.devicePixelRatio || 1;
+    const width = canvas.width / dpr;
+    const height = canvas.height / dpr;
+
     const bufferLength = analyserRef.current.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyserRef.current.getByteFrequencyData(dataArray);
-    
-    const { width, height } = canvas;
     const avg = dataArray.reduce((a, b) => a + b, 0) / bufferLength;
     const bassAvg = dataArray.slice(0, 16).reduce((a, b) => a + b, 0) / 16;
     const isAudioPlaying = avg > 1;
