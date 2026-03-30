@@ -17,22 +17,6 @@ const Panel: React.FC<{ title: string; children: React.ReactNode; className?: st
   </div>
 );
 
-const TopBar: React.FC = () => (
-  <div className="bg-[#353535] border-b border-black h-8 flex items-center px-4 space-x-4 shrink-0 z-20">
-    <div className="flex items-center space-x-1">
-      <div className="w-4 h-4 bg-brand-primary rounded-sm flex items-center justify-center">
-        <span className="text-[10px] text-black font-bold">Ae</span>
-      </div>
-      <span className="text-[11px] font-medium text-gray-300">Adobe After Effects 2025</span>
-    </div>
-    <div className="flex space-x-3">
-      {['File', 'Edit', 'Composition', 'Layer', 'Effect', 'Animation', 'View', 'Window', 'Help'].map(item => (
-        <span key={item} className="text-[11px] text-gray-300 hover:text-white cursor-default">{item}</span>
-      ))}
-    </div>
-  </div>
-);
-
 // --- Helper UI Components ---
 
 interface SliderProps {
@@ -777,8 +761,6 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen bg-brand-bg text-gray-200 font-sans overflow-hidden select-none">
-      <TopBar />
-
       {/* Middle Workspace */}
       <div className="flex flex-1 overflow-hidden">
         {/* Left Sidebar */}
